@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movie Library</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🎬 My Movie Library</h1>
+        <p class="subtitle">Add and manage your favorite movies</p>
+
+        <form id="movie-form">
+
+            <label for="title">Movie Title</label>
+            <input type="text" id="title" placeholder="Enter movie title" required>
+
+            <label for="director">Director</label>
+            <input type="text" id="director" placeholder="Enter director" required>
+
+            <label for="year">Year</label>
+            <input type="number" id="year" placeholder="Enter year" required>
+
+            <button type="submit">Add Movie</button>
+
+        </form>
+
+        <h2>My Movies</h2>
+
+        <ul id="movies"></ul>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
