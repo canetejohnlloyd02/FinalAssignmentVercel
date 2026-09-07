@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const path = require("path");
 const { neon } = require("@neondatabase/serverless");
 
 const app = express();
@@ -11,6 +12,12 @@ const sql = neon(process.env.DATABASE_URL);
 app.use(express.json());
 app.use(express.static("public"));
 
+// Homepage
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "mylibrary.html"));
+});
+
+// GET all movies
 app.get("/movies", async (req, res) => {
     try {
         const movies = await sql`
@@ -23,7 +30,10 @@ app.get("/movies", async (req, res) => {
         console.error("DATABASE ERROR:", error);
         res.status(500).json({ error: "Database error" });
     }
-}); app.post("/movies", async (req, res) => {
+});
+
+// POST a new movie
+app.post("/movies", async (req, res) => {
     try {
         const { title, director, year } = req.body;
 
@@ -40,6 +50,7 @@ app.get("/movies", async (req, res) => {
     }
 });
 
+// UPDATE a movie
 app.put("/movies/:id", async (req, res) => {
     try {
         const { id } = req.params;
@@ -61,8 +72,7 @@ app.put("/movies/:id", async (req, res) => {
     }
 });
 
-
-
+// DELETE a movie
 app.delete("/movies/:id", async (req, res) => {
     try {
         const { id } = req.params;
@@ -80,6 +90,7 @@ app.delete("/movies/:id", async (req, res) => {
     }
 });
 
+// Run server locally
 if (require.main === module) {
     app.listen(PORT, () => {
         console.log(`Server running on http://localhost:${PORT}`);
