@@ -13,7 +13,7 @@ body {
     color: #f5f5f5;
 }
 
-
+/* Main container */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -21,7 +21,7 @@ body {
     padding: 50px 0;
 }
 
-
+/* Header */
 h1 {
     margin: 0;
     text-align: center;
@@ -40,14 +40,14 @@ h1::after {
     margin-top: 8px;
 }
 
-
+/* Subtitle */
 .subtitle {
     text-align: center;
     color: #aaa;
     margin: 10px 0 40px;
 }
 
-
+/* Form */
 form {
     background: rgba(25, 25, 25, 0.95);
     border: 1px solid #3a3a3a;
@@ -94,14 +94,14 @@ button:hover {
     transform: translateY(-1px);
 }
 
-
+/* Movie section */
 #movies {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 24px;
 }
 
-
+/* Movie cards */
 .movie {
     position: relative;
     background: linear-gradient(145deg, #222, #111);
@@ -147,14 +147,14 @@ button:hover {
     color: #fff;
 }
 
-
+/* Buttons inside movie cards */
 .movie button {
     margin-top: 15px;
     margin-right: 7px;
     font-size: 13px;
 }
 
-
+/* Delete button */
 .movie button.delete,
 button.delete {
     background: #9e3030;
@@ -166,7 +166,7 @@ button.delete:hover {
     background: #c43b3b;
 }
 
-
+/* Edit button */
 .movie button.edit,
 button.edit {
     background: #444;
@@ -178,7 +178,7 @@ button.edit:hover {
     background: #666;
 }
 
-
+/* Delete all button */
 #deleteAll {
     display: block;
     margin: 30px auto 0;
@@ -190,7 +190,7 @@ button.edit:hover {
     background: #b83232;
 }
 
-
+/* Section title */
 h2.section-title {
     font-family: "Playfair Display", serif;
     text-align: center;
@@ -199,7 +199,7 @@ h2.section-title {
     margin-bottom: 25px;
 }
 
-
+/* Empty message */
 #movies:empty::after {
     content: "No movies in your library yet.";
     display: block;
@@ -211,7 +211,7 @@ h2.section-title {
     border-radius: 10px;
 }
 
-
+/* Mobile */
 @media (max-width: 600px) {
     .container {
         width: 92%;
